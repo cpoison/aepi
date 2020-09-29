@@ -15,7 +15,7 @@ const searchFiles = (path) => {
 const readFiles = (path, mdFiles) => {
     let content = mdFiles.map(file => {
         try {
-            return fs.readFileSync(`${path}/${file}`, 'utf-8');
+            return fs.readFileSync(`${path}${file}`, 'utf-8');
         } catch (error) {
             console.log(error)
         }
@@ -24,11 +24,16 @@ const readFiles = (path, mdFiles) => {
 }
 
 const init = async (path) => {
-    let mdFiles = await searchFiles(path);
-    let filesContent = readFiles(path, mdFiles);
-    console.log(filesContent);
+    if (fs.existsSync(path)) {
+        let mdFiles = await searchFiles(path);
+        let filesContent = readFiles(path, mdFiles);
+        console.log(filesContent);
+    } else {
+        console.error("The provided path doesn't exit");
+    }
+
 }
 
-init('./documents');
+init('./documents/');
 
 
