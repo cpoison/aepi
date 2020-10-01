@@ -12,13 +12,25 @@ const searchFiles = (path) => {
     })
 }
 
-const readFiles = (path, mdFiles) => {
+const readFiles = async (path, mdFiles) => {
     let content = mdFiles.map(file => {
-        try {
-            return fs.readFileSync(`${path}${file}`, 'utf-8');
-        } catch (error) {
-            console.error(error)
-        }
+
+        return new Promise((resolve, reject) => {
+            fs.readFile(`${path}${file}`, 'utf-8', (err, data) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(data)
+                }
+            });
+        })
+
+
+        // try {
+        //     return fs.readFileSync(`${path}${file}`, 'utf-8');
+        // } catch (error) {
+        //     console.error(error)
+        // }
     });
     return content
 }
