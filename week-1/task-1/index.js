@@ -1,4 +1,6 @@
 const fs = require('fs');
+const util = require('util');
+const readFile = util.promisify(fs.readFile);
 
 const searchFiles = (path) => {
     return new Promise((resolve, reject) => {
@@ -12,25 +14,12 @@ const searchFiles = (path) => {
     })
 }
 
-const readFiles = async (path, mdFiles) => {
-    let content = mdFiles.map(file => {
-
-        return new Promise((resolve, reject) => {
-            fs.readFile(`${path}${file}`, 'utf-8', (err, data) => {
-                if (err) {
-                    reject(err)
-                } else {
-                    resolve(data)
-                }
-            });
-        })
-
-
-        // try {
-        //     return fs.readFileSync(`${path}${file}`, 'utf-8');
-        // } catch (error) {
-        //     console.error(error)
-        // }
+const readFiles = (path, mdFiles) => {
+    let content = mdFiles.map(file => {   
+        readFile(`${path}${file}`, 'utf-8',)
+            .then(data => data)
+            .catch(err => console.error(err));
+    
     });
     return content
 }
@@ -38,7 +27,7 @@ const readFiles = async (path, mdFiles) => {
 const init = async (path) => {
     if (fs.existsSync(path)) {
         let mdFiles = await searchFiles(path);
-        let filesContent = readFiles(path, mdFiles);
+        let filesContent = await readFiles(path, mdFiles);
         console.log(filesContent);
     } else {
         console.error("The provided path doesn't exit");
