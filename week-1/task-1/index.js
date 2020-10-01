@@ -17,7 +17,7 @@ const readFiles = (path, mdFiles) => {
         try {
             return fs.readFileSync(`${path}${file}`, 'utf-8');
         } catch (error) {
-            console.log(error)
+            console.error(error)
         }
     });
     return content
