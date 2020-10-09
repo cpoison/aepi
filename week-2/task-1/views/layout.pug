@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
+  body
+    header
+      h1.my-3 Esta es la cabecera de mi web
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href="/main/index") Main/Index
+        li.nav-item
+          a.nav-link(href="/main/about") Main/About
+        li.nav-item
+          a.nav-link(href="/client/index") Client/Index
+        li.nav-item
+          a.nav-link(href="/client/new") Client/New
+    
+    .container-fluid 
+      block content
