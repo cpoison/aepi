@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    h2 Todos los productos:
+
+    table.table.table-striped 
+        thead   
+            tr
+                th ID
+                th Nombre
+                th Descripcion
+                th Precio
+                th Departamento
+                th Acciones
+        tbody
+            each producto in productos
+                tr
+                    td= producto._id
+                    td= producto.nombre
+                    td= producto.descripcion
+                    td= producto.precio
+                    td= producto.departamento
+                    td 
+                        a.btn-sm.btn-primary(href="/productos/" + producto._id) Ver
+                        a.btn-sm.btn-info.mx-1(href="/productos/edit/" + producto._id) Editar
+                        a.btn-sm.btn-danger(href="/productos/delete/" + producto._id,
+                        
+                        onclick="return confirm('Quieres borrar el producto?')") Borrar

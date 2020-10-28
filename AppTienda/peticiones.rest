@@ -1,0 +1,116 @@
+GET http://localhost:3000/pruebas/insert
+
+###
+
+GET http://localhost:3000/pruebas/insert_v2
+
+###
+
+GET http://localhost:3000/pruebas/inster_v3
+
+###
+
+GET http://localhost:3000/pruebas/find
+
+
+###
+
+GET http://localhost:3000/pruebas/find_by_name
+
+###
+
+GET http://localhost:3000/pruebas/find_mayores_edad
+
+###
+
+GET http://localhost:3000/pruebas/modificar
+
+###
+
+GET http://localhost:3000/pruebas/modificar_v2
+###
+
+GET http://localhost:3000/pruebas/modificar_v3
+
+
+
+###
+
+GET http://localhost:3000/api/productos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOiI1ZjgxOGIyZjQ3ZmZiMGEyNGE2MTMzYzUiLCJmZWNoYUNyZWFjaW9uIjoxNjAyMzMwODAxLCJmZWNoYUV4cGlyYWNpb24iOjE2MDIzMzE0MDEsImlhdCI6MTYwMjMzMDgwMX0.gavILl0N46tcoL5bEaTtdaQFgVnok8pEbicRfU98O70
+
+###
+
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{
+    "nombre": "Termomix2",
+    "precio": 123,
+    "descripcion": "mucho bueno",
+    "departamento": "electrodomesticos"
+}
+
+###
+
+PUT http://localhost:3000/api/productos
+Content-Type: application/json
+
+{
+    "id": "5f8164b08453a99d5bb51f3d",
+    "precio": 888
+}
+
+###
+
+DELETE  http://localhost:3000/api/productos/5f8164b08453a99d5bb51f3d
+
+###
+
+POST http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "nombre": "Pedro",
+    "apellidos": "Garcia",
+    "username": "pgarcia",
+    "password": "12345",
+    "email": "pedro@gmail.com"
+}
+
+###
+
+POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "pedro@gmail.com",
+    "password": "12345"
+}
+
+
+###
+
+
+POST http://localhost:3000/api/clientes/create
+Content-Type: application/json
+
+{
+    "nombre": "",
+    "apellidos": "",
+    "direccion": "Calle falsa 123",
+    "email": "",
+    "dni": "6565656565A"
+}
+
+
+###
+GET http://localhost:3000/api/clientes/
+
+###
+GET http://localhost:3000/api/clientes/delete/5f883d478fc47bbc065c963a
+
+
+
+###
+PUT http://localhost:3000/api/clientes/update/5f883d184a24abbbfd2b1de5
