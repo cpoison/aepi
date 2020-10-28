@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <header class="header align-center"><h1>Caja registradora</h1></header>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <app-lista-productos titulo="Comida" [productos]="arrComida" (productoSeleccionado)='onProductoSeleccionado($event)'></app-lista-productos>
+      <app-lista-productos titulo="Bebida" [productos]="arrBebida" (productoSeleccionado)='onProductoSeleccionado($event)'></app-lista-productos>
+    </div>
+    <div class="col-4">
+      <app-comanda [productos]="productosSeleccionados"></app-comanda>
+    </div>
+  </div>
+</div>

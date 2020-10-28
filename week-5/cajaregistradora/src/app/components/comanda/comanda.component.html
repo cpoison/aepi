@@ -1,0 +1,11 @@
+<h3>Productos seleccionados:</h3>
+<ul *ngIf="productos.length > 0">
+    <li *ngFor="let producto of productos">
+        <label>{{producto.nombre}}</label> - <label>{{producto.precio}}€</label>
+    </li>
+</ul>
+<p *ngIf="productos.length == 0">Selecciona algun producto</p>
+
+<button class="btn btn-success" (click)="onClick()">Calcular</button>
+<h4>Total: {{total}}€</h4>
+
